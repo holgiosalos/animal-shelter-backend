@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "start": "npm run build && node ./build/index.js",
+    "build": "npm run clean && npm run build-babel",
+    "build-babel": "babel -d ./build ./src -s",
+    "clean": "rm -rf build && mkdir build"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +18,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.17",
     "@babel/core": "^7.12.16",
     "@babel/node": "^7.12.16",
     "@babel/preset-env": "^7.12.16",
