@@ -32,7 +32,7 @@ app.get('/animals', (req, res) => {
     res.send(animals);
 });
 
-app.post('/animals', (req, res) => {
+app.post('/animal', (req, res) => {
     const animal = req.body;
     if (!animals.some(e => e.name === animal.name)) {
         animals.push(animal);
