@@ -7,8 +7,8 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 const animals = [{
-    name: "Bigotes",
-    breed: "Male",
+    name: "Manchas",
+    breed: "Bengali",
     gender: "Female",
     isVaccinated: true,
     vaccines: ["rabia", "leucemia", "parvovirus"]
