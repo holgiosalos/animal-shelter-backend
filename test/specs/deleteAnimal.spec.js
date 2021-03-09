@@ -18,13 +18,13 @@ describe('Given a created animal', () => {
             ]
         };
 
-        createdAnimal = (await axios.post('http://localhost:8080/animal', animal)).data;
+        createdAnimal = (await axios.post('https://animal-shelter-back.herokuapp.com/animal', animal)).data;
 
     });
 
     describe('When the user wants to delete the animal', () => {
         before(async () => {
-            response = await axios.delete(`http://localhost:8080/animal/${createdAnimal.name}`)
+            response = await axios.delete(`https://animal-shelter-back.herokuapp.com/animal/${createdAnimal.name}`)
         });
 
         it('Then should have an OK status code', () => {
