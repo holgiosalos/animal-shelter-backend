@@ -4,7 +4,7 @@ const axios = require('axios');
 let response;
 describe('When the user wants to list animals', () => {
     before(async () => {
-        response = await axios.get('http://localhost:8080/animals');
+        response = await axios.get('https://animal-shelter-back.herokuapp.com/animals');
     });
     it('should have an OK status code', () => {
         expect(response.status).eql(200);
