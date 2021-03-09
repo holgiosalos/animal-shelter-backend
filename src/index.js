@@ -52,7 +52,7 @@ app.put('/animal/:name', (req, res) => {
         filteredAnimal[0].isVaccinated = isVaccinated
         filteredAnimal[0].vaccines = vaccines
         animals.splice(animals.findIndex(animal => animal.name.toUpperCase() === name.toUpperCase()), 1, filteredAnimal[0]);
-        res.status(200).send(animals);
+        res.status(200).send(animals.filter(animal => animal.name.toUpperCase() === name.toUpperCase())[0]);
     } else
         res.status(404).json({ message: `Animal with the name ${name} not found` });
 });
