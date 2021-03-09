@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test/**/*.spec.js",
     "dev": "nodemon --exec babel-node src/index.js",
     "start": "npm run build && node ./build/index.js",
     "build": "npm run clean && npm run build-babel",
@@ -24,6 +24,10 @@
     "@babel/core": "^7.12.17",
     "@babel/node": "^7.12.17",
     "@babel/preset-env": "^7.12.17",
+    "axios": "^0.21.1",
+    "chai": "^4.3.3",
+    "faker": "^5.4.0",
+    "mocha": "^8.3.1",
     "nodemon": "^2.0.7"
   }
 }
