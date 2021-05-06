@@ -19,7 +19,7 @@ describe('Given a created animal', () => {
             ]
         };
 
-        createdAnimal = (await axios.post('https://animal-shelter-back.herokuapp.com/animal', animal)).data;
+        createdAnimal = (await axios.post('https://animal-shelter-back.herokuapp.com/animals', animal)).data;
 
     });
 
@@ -35,7 +35,7 @@ describe('Given a created animal', () => {
                 ]
             };
 
-            response = await axios.put(`https://animal-shelter-back.herokuapp.com/animal/${createdAnimal.name}`, updatedAnimal)
+            response = await axios.put(`https://animal-shelter-back.herokuapp.com/animals/${createdAnimal.name}`, updatedAnimal)
         });
 
         it('Then should have an OK status code', () => {

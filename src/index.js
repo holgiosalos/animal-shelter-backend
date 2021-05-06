@@ -32,7 +32,7 @@ app.get('/animals', (req, res) => {
     res.send(animals);
 });
 
-app.post('/animal', (req, res) => {
+app.post('/animals', (req, res) => {
     const animal = req.body;
     if (!animals.some(e => e.name.toUpperCase() === animal.name.toUpperCase())) {
         animals.push(animal);
@@ -42,7 +42,7 @@ app.post('/animal', (req, res) => {
     }
 });
 
-app.put('/animal/:name', (req, res) => {
+app.put('/animals/:name', (req, res) => {
     const { name } = req.params;
     const { breed, gender, isVaccinated, vaccines } = req.body;
     const filteredAnimal = animals.filter(animal => animal.name.toUpperCase() === name.toUpperCase());
@@ -57,7 +57,7 @@ app.put('/animal/:name', (req, res) => {
         res.status(404).json({ message: `Animal with the name ${name} not found` });
 });
 
-app.delete('/animal/:name', (req, res) => {
+app.delete('/animals/:name', (req, res) => {
     const { name } = req.params;
     const filteredAnimal = animals.filter(animal => animal.name.toUpperCase() === name.toUpperCase());
     if (filteredAnimal.length > 0) {
