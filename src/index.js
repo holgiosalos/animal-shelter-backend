@@ -66,3 +66,13 @@ app.delete('/animals/:name', (req, res) => {
     } else
         res.status(404).json({ message: `Animal with the name ${name} not found` });
 });
+
+app.get('/animals/:name', (req, res) => {
+    const { name } = req.params;
+    const filteredAnimal = animals.filter(animal => animal.name.toUpperCase() === name.toUpperCase());
+    if (filteredAnimal.length > 0) {
+        animals.splice(animals.findIndex(animal => animal.name.toUpperCase() === name.toUpperCase()), 1);
+        res.status(200).send(filteredAnimal[0]);
+    } else
+        res.status(404).json({ message: `Animal with the name ${name} not found` });
+});
