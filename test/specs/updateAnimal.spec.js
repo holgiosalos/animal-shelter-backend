@@ -2,6 +2,7 @@ const expect = require('chai').expect;
 const axios = require('axios');
 const faker = require('faker').random;
 
+const baseUrl = 'http://localhost:8080';
 let createdAnimal;
 let updatedAnimal;
 let response;
@@ -19,7 +20,7 @@ describe('Given a created animal', () => {
             ]
         };
 
-        createdAnimal = (await axios.post('https://animal-shelter-back.herokuapp.com/animals', animal)).data;
+        createdAnimal = (await axios.post(`${baseUrl}/animals`, animal)).data;
 
     });
 
@@ -35,7 +36,7 @@ describe('Given a created animal', () => {
                 ]
             };
 
-            response = await axios.put(`https://animal-shelter-back.herokuapp.com/animals/${createdAnimal.name}`, updatedAnimal)
+            response = await axios.put(`${baseUrl}/animals/${createdAnimal.name}`, updatedAnimal)
         });
 
         it('Then should have an OK status code', () => {

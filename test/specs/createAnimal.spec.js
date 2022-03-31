@@ -14,10 +14,12 @@ const animal = {
     ]
 };
 
+const baseUrl = 'http://localhost:8080';
+
 let response;
 describe('When the user wants to create an animal', () => {
     before(async () => {
-        response = await axios.post('https://animal-shelter-back.herokuapp.com/animals', animal);
+        response = await axios.post(`${baseUrl}/animals`, animal);
     });
 
     it('should have a created status code', () => {
